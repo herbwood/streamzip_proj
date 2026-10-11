@@ -104,6 +104,10 @@
   <section class="section">
     <div class="container is-max-desktop">
       <h2 class="title is-3 has-text-centered">StreamZip</h2>
+      <div class="figure-block">
+        <img src="static/images/overview.jpg" alt="Overview of StreamZip" loading="lazy">
+        <p class="figure-caption">Overview of StreamZip: (1) deterministic causal memory under multiple token budgets, (2) multi-budget training of a shared student answerer, and (3) selective full-context distillation.</p>
+      </div>
       <div class="content has-text-justified">
         <p>
           Rather than designing a better token selector, StreamZip adapts the answerer to compressed evidence. A fixed, deterministic causal retention process keeps a nested, temporally balanced subset of visual tokens for each incoming chunk, so that discarded evidence never reappears. Each training example is viewed under several budgets (100%, 50%, 25% and 12.5%), and a single shared answerer is trained across all of them with a learnable <b>budget embedding</b> inserted between the visual context and the question, using LoRA on the upper language-model layers. The answerer is optimized with a margin-based answer objective and <b>selective full-context distillation</b>, where a frozen teacher that sees the uncompressed prefix transfers knowledge only when its prediction is correct and confident.
